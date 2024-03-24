@@ -13,11 +13,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(2)->unverified()->create();
+        \App\Models\Task::factory(20)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }
+
+// php artisan migrate
+// php artisan db:seed
+// php artisan make:factory TaskFactory --model=Task
+
+// php artisan migrate:refresh --seed
+
+

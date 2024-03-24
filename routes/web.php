@@ -44,22 +44,18 @@ Route::put('/tasks/{task}', function (Task $task, TaskRequest $request) {
         ->with('success', 'Task updated successfully!');
 })->name('tasks.update');
 
+Route::delete('/tasks/{task}', function (Task $task) {
+    $task->delete();
+
+    return redirect()->route('tasks.index')
+        ->with('success', 'Task deleted successfully!');
+})->name('tasks.destroy');
+
 Route::fallback(function () {
     return 'Still got somewhere!';
 });
 
-// Route::get('/xxx', function () {
-//     return 'Hello';
-// })->name('hello');
-
-// Route::get('/hallo', function () {
-//     return redirect()->route('hello');
-// });
-
-// Route::get('/greet/{name}', function ($name) {
-//     return 'Hello ' . $name . '!';
-// });
-
+// MEMO
 // php artisan route:list
 
 // php artisan tinker

@@ -3,6 +3,7 @@
 
 <head>
   <title>Laravel To-do List App</title>
+  @yield('styles')
 </head>
 
 <body>
